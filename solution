@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace hackerrank_ProjectEuler_
+{
+    class Program
+    {
+      
+
+        static void Main(string[] args)
+        {
+            int t=Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                double n = Convert.ToDouble(Console.ReadLine());
+                double max = 0;
+                for (double a = 2; a < n; a++)
+                {
+                    double ntemp = n;
+                    double atemp = a;
+                    double btemp1 = (Math.Pow(ntemp, 2)) - (2 * ntemp * atemp);
+                    double btemp2 = (2 * n - 2 * a);
+                    if (btemp1 % btemp2 == 0)
+                    {
+                        double b = btemp1 / btemp2;
+                        double ans = a * b * (n - a - b);
+                        if (ans > max)
+                        {
+                            max = ans;
+                        }
+                    }
+                }
+                if (max == 0)
+                { Console.WriteLine("-1"); }
+                else
+                {
+                    Console.WriteLine(max);
+                }
+            }
+            
+        }
+    }
+}
